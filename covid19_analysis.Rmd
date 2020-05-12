@@ -1,5 +1,5 @@
 ---
-title: "Covid_19_Data_Analysis"
+title: "Covid 19 Data Analysis"
 output: html_document
 ---
 
@@ -7,3 +7,19 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# <span style="color:red"> Reading in the data  </span>
+
+
+</br>
+
+#### <span style="color:green"> Loading necessary library </span>
+
+```{r}
+library("readr")
+```
+
+#### <span style="color:green"> Reading File and saving it in a variable</span>
+
+```{r}
+corona <- read_csv("RKI_COVID19_200504.csv")
+```
