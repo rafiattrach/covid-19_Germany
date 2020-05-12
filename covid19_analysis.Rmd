@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# <span style="color:red"> Reading in the data  </span>
+## <span style="color:red"> Reading in the data  </span>
 
 
 </br>
@@ -22,4 +22,24 @@ library("readr")
 
 ```{r}
 corona <- read_csv("RKI_COVID19_200504.csv")
+```
+
+
+</br>
+
+## <span style="color:red"> Finding the total amount of infected people in Germany over the course of the days </span>   
+
+</br>
+
+#### <span style="color:green"> Loading *dplyr* package to use pipes </span>
+
+```{r message=FALSE}    
+library("dplyr")
+```
+
+#### <span style="color:green"> Grouping infections depending on corresponding day </span>
+```{r} 
+total_infected_by_day <- corona %>%
+                            group_by(date) %>%
+                              summarise(total_infected = sum(number_infected))
 ```

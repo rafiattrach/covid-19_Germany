@@ -366,8 +366,8 @@ summary {
 </div>
 
 
-<div id="reading-in-the-data" class="section level1">
-<h1><span style="color:red"> Reading in the data </span></h1>
+<div id="reading-in-the-data" class="section level2">
+<h2><span style="color:red"> Reading in the data </span></h2>
 <p></br></p>
 <div id="loading-necessary-library" class="section level4">
 <h4><span style="color:green"> Loading necessary library </span></h4>
@@ -387,6 +387,21 @@ summary {
 ##   number_recovered = col_double(),
 ##   date = col_date(format = &quot;&quot;)
 ## )</code></pre>
+<p></br></p>
+</div>
+</div>
+<div id="finding-the-total-amount-of-infected-people-in-germany-over-the-course-of-the-days" class="section level2">
+<h2><span style="color:red"> Finding the total amount of infected people in Germany over the course of the days </span></h2>
+<p></br></p>
+<div id="loading-dplyr-package-to-use-pipes" class="section level4">
+<h4><span style="color:green"> Loading <em>dplyr</em> package to use pipes </span></h4>
+<pre class="r"><code>library(&quot;dplyr&quot;)</code></pre>
+</div>
+<div id="grouping-infections-depending-on-corresponding-day" class="section level4">
+<h4><span style="color:green"> Grouping infections depending on corresponding day </span></h4>
+<pre class="r"><code>total_infected_by_day &lt;- corona %&gt;%
+                            group_by(date) %&gt;%
+                              summarise(total_infected = sum(number_infected))</code></pre>
 </div>
 </div>
 
