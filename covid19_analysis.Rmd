@@ -86,3 +86,12 @@ corona_by_state <- corona %>%
 ```{r}
 corona_by_state
 ```
+
+#### <span style="color:green"> Visualization </span>   
+
+
+```{r}
+ggplot(corona_by_state)+ geom_col(aes(x= avg, y= federal_state, color= federal_state)) + labs(y = "Federal states in DE", x = "Mean")
+
+ 
+```
