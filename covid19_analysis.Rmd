@@ -61,3 +61,28 @@ ggplot(total_infected_by_day, aes(x = date, y = total_infected)) +
         geom_line(size=2,col="red") + ylab("Total number of infections") + 
           ggtitle("Amount of total infections over time") 
 ```
+
+</br>
+
+## <span style="color:red"> Comparing the infections in different states </span> 
+
+</br>
+
+
+#### <span style="color:green"> Grouping data by <span style="color:blue">*federal_state*</span> and since we want to calculate <span style="color:blue">*mean()*</span> for each state <span style="color:blue">over the course of the different days</span> we have to group all the infections that occured on the same day since various individuals can get infected during the same day (date) </span>
+
+```{r}
+corona_by_state <- corona %>%
+                    # All infections during same day by each state
+                    group_by(date,federal_state) %>% 
+                      summarise(sum = sum(number_infected)) %>%
+                         # we are interested in the mean per state
+                          group_by(federal_state) %>%
+                            # Compute mean
+                            summarise(avg = mean(sum))
+```
+#### <span style="color:green"> View Tibble </span>   
+
+```{r}
+corona_by_state
+```
