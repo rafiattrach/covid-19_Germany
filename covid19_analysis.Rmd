@@ -32,11 +32,6 @@ corona <- read_csv("data/corona_data.csv")
 
 </br>
 
-#### <span style="color:green"> Loading *dplyr* package to use pipes </span>
-
-```{r message=FALSE}    
-library("dplyr")
-```
 
 #### <span style="color:green"> Grouping infections depending on corresponding day </span>
 ```{r} 
@@ -58,7 +53,7 @@ total_infected_by_day
 ```{r}
 ggplot(total_infected_by_day, aes(x = date, y = total_infected)) +
         # Extra paramters optional for better visualization
-        geom_line(size=2,col="red") + ylab("Total number of infections") + 
+        geom_line(size=1,col="red") + ylab("Total number of infections") + 
           ggtitle("Amount of total infections over time") 
 ```
 
